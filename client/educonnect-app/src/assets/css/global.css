@@ -1,144 +1,89 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Global */
+/* Global reset & body */
 body {
     font-family: 'Segoe UI', sans-serif;
-    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fc;
     color: #333;
-    line-height: 1.6;
-    padding: 20px;
 }
 
-.page {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-}
-
+/* Headings */
 h1,
 h2,
-h3 {
-    color: #2b2b2b;
-    margin-bottom: 1rem;
+h3,
+h4 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
 }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffffff;
-    border-bottom: 1px solid #ddd;
-    padding: 12px 24px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-}
-
-.navbar a,
-.navbar button {
-    margin-left: 10px;
-    text-decoration: none;
-    color: #0077cc;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.navbar button:hover,
-.navbar a:hover {
-    color: #005b99;
-}
-
-/* Forms */
-.auth-form,
-.filter-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.auth-form input,
-.auth-form textarea,
-.auth-form select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 0.95rem;
-}
-
-.auth-form button,
-.filter-form button {
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background-color: #0077cc;
+/* Buttons */
+button {
+    background: #007bff;
     color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
+    transition: background 0.3s;
 }
 
-.auth-form button:hover,
-.filter-form button:hover {
-    background-color: #005b99;
+button:hover {
+    background: #0056b3;
 }
 
-/* Cards */
-.tutor-card,
-.session-card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 15px;
-    background-color: #ffffff;
-    transition: box-shadow 0.2s ease;
-}
-
-.tutor-card:hover,
-.session-card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.actions button {
-    margin-right: 8px;
-    margin-top: 8px;
-    padding: 6px 10px;
-    font-size: 0.9rem;
-}
-
-/* Tables */
-table {
+/* Inputs, selects, textareas */
+input,
+select,
+textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
 }
 
-th,
-td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
+/* Card components (reusable styles) */
+.tutor-card,
+.session-card,
+.wishlist-card,
+.review-card,
+.verification-card {
+    background: white;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-th {
-    background-color: #f2f2f2;
+/* Filter and form containers */
+.filter-bar,
+form {
+    margin-bottom: 1.5rem;
+    display: grid;
+    gap: 1rem;
 }
 
-/* Success/Error messages (optional) */
-.success {
-    color: #2e7d32;
-    margin-top: 8px;
+/* Links */
+a {
+    color: #007bff;
+    text-decoration: none;
 }
 
-.error {
-    color: #c62828;
-    margin-top: 8px;
+a:hover {
+    text-decoration: underline;
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem;
+}
+
+/* Section headers */
+section {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
 }

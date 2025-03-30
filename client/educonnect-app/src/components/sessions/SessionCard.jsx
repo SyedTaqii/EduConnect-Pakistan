@@ -1,21 +1,28 @@
-// src/components/sessions/SessionCard.jsx
 import React from 'react';
 
-const SessionCard = ({ session, onAccept, onReject, onComplete, onDelete }) => {
+{
+    session.status === 'completed' && (
+        <Link to={`/review/${session._id}`}>Review</Link>
+    )
+}
+
+
+const SessionCard = ({ session, onReschedule, onCancel }) => {
     return (
         <div className="session-card">
-            <p><strong>Subject:</strong> {session.subject}</p>
-            <p><strong>Student:</strong> {session.student}</p>
-            <p><strong>Date:</strong> {new Date(session.date).toLocaleDateString()}</p>
-            <p><strong>Time:</strong> {session.time}</p>
-            <p><strong>Status:</strong> {session.status}</p>
+            <h4>{session.subject}</h4>
+            <p>With: {session.tutorId?.name}</p>
+            <p>Date: {session.date}</p>
+            <p>Time: {session.time}</p>
+            <p>Type: {session.type}</p>
+            <p>Status: {session.status}</p>
 
-            <div className="actions">
-                {onAccept && <button onClick={() => onAccept(session._id)}>Accept</button>}
-                {onReject && <button onClick={() => onReject(session._id)}>Reject</button>}
-                {onComplete && <button onClick={() => onComplete(session._id)}>Mark Completed</button>}
-                {onDelete && <button onClick={() => onDelete(session._id)}>Cancel</button>}
-            </div>
+            {session.status === 'booked' && (
+                <>
+                    <button onClick={() => onReschedule(session)}>Reschedule</button>
+                    <button onClick={() => onCancel(session._id)}>Cancel</button>
+                </>
+            )}
         </div>
     );
 };

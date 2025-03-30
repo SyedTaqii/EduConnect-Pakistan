@@ -1,19 +1,16 @@
-// src/main.jsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import { AuthProvider } from './context/AuthContext';
-import { BrowserRouter as Router } from 'react-router-dom';
-// ✅ Correct
-import './assets/css/global.css';
-
+import App from './App.jsx';
+import { BrowserRouter } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext.jsx';
+import './assets/css/global.css'; // Your CSS file
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider>
-      <Router>
+    <BrowserRouter>
+      <AuthProvider>
         <App />
-      </Router>
-    </AuthProvider>
+      </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );

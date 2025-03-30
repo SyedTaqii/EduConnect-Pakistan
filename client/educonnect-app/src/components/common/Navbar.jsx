@@ -1,7 +1,6 @@
-// src/components/common/Navbar.jsx
 import React, { useContext } from 'react';
-import { AuthContext } from '../../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
@@ -12,20 +11,36 @@ const Navbar = () => {
         navigate('/login');
     };
 
-    const role = user?.role;
-
     return (
-        <nav className="navbar">
-            <h1>EduConnect</h1>
-            {user ? (
+        <nav style={{ padding: '1rem', background: '#f1f1f1', marginBottom: '1rem' }}>
+            <Link to="/">Home</Link> |{' '}
+            {!user && <><Link to="/login">Login</Link> | <Link to="/register">Register</Link></>}
+
+            {user && user.role === 'student' && (
                 <>
-                    <span>Logged in as {user.name} ({role})</span>
-                    <button onClick={handleLogout}>Logout</button>
+                    <Link to="/my-sessions">My Sessions</Link> |
+                    <Link to="/wishlist">Wishlist</Link> |
                 </>
-            ) : (
+            )}
+
+            {user && user.role === 'tutor' && (
                 <>
-                    <Link to="/login">Login</Link>
-                    <Link to="/register">Register</Link>
+                    <Link to="/tutor/profile">My Profile</Link> |
+                    <Link to="/tutor/dashboard">Dashboard</Link> |
+                </>
+            )}
+
+            {user && user.role === 'admin' && (
+                <>
+                    <Link to="/admin/verifications">Verifications</Link> |
+                    <Link to="/admin/reports">Reports</Link> |
+                </>
+            )}
+
+            {user && (
+                <>
+                    <span style={{ marginLeft: '1rem' }}><strong>{user.role.toUpperCase()}</strong></span>
+                    <button onClick={handleLogout} style={{ marginLeft: '1rem' }}>Logout</button>
                 </>
             )}
         </nav>

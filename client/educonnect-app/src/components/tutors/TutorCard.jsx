@@ -1,14 +1,17 @@
-// src/components/tutors/TutorCard.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const TutorCard = ({ tutor }) => {
+const TutorCard = ({ tutor, onWishlistClick }) => {
     return (
         <div className="tutor-card">
-            <h3>{tutor.name}</h3>
-            <p><strong>Subjects:</strong> {tutor.subjects?.join(', ')}</p>
-            <p><strong>Hourly Rate:</strong> Rs {tutor.hourlyRate}</p>
-            <p><strong>Rating:</strong> {tutor.rating || 'Not rated yet'}</p>
-            <p><strong>Teaching Type:</strong> {tutor.teachingType}</p>
+            <h3>{tutor.userId?.name}</h3>
+            <p>{tutor.subjects?.join(', ')}</p>
+            <p>City: {tutor.city}</p>
+            <p>Rate: Rs. {tutor.rate}/hr</p>
+            <p>Rating: ⭐ {tutor.rating}</p>
+
+            <Link to={`/book/${tutor.userId?._id}`}>Book</Link>
+            <button onClick={() => onWishlistClick(tutor._id)}>Add to Wishlist</button>
         </div>
     );
 };
