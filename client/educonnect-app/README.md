@@ -1,12 +1,40 @@
-# React + Vite
+# EduConnect Pakistan — Frontend (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for EduConnect Pakistan, a tutoring platform for students, tutors, and admins.
 
-Currently, two official plugins are available:
+## 🔧 Tech Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React
+- Vite
+- React Router DOM
+- Axios
+- Context API
+- CSS (custom)
 
-## Expanding the ESLint configuration
+## 🚀 Setup Instructions
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Go to the client folder:
+cd client npm install npm run dev
+
+
+2. Runs on: http://localhost:5173
+
+Make sure the backend is also running on http://localhost:5000
+
+## 📌 Features by Role
+
+### 👨‍🎓 Student
+- Search tutors
+- Book sessions
+- View / cancel / reschedule sessions
+- Reviews & ratings
+- Wishlist
+
+### 👨‍🏫 Tutor
+- Profile management
+- Accept/decline sessions
+- Earnings summary
+
+### 👮 Admin
+- Manage tutor verifications
+- View platform reports
